@@ -1,0 +1,37 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #5784ff;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold; 
+    position: fixed;
+    z-index: 2;
+
+}
+
+.content{
+    background-color: #e4ebff;
+    display: flex;
+    width: 1000px;
+    height: auto;
+    border-radius: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center; 
+}
+.title{
+    margin-top: 150px;
+    text-align: center;
+}
