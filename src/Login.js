@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Home from './Home.js';
 import './Login.css';
+import { UserInfo } from './UserInfo.js';
 
-const storedUserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+localStorage.setItem('userInfo', JSON.stringify(UserInfo));
 
 const Login = () => {
+
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [isLogin, setIsLogin] = useState(false);
@@ -18,10 +20,13 @@ const Login = () => {
     };
 
     const handleLogin = () => {
+        const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
         if (id === storedUserInfo.id && pw === storedUserInfo.password) {
             setIsLogin(true);
         } else {
         alert('ID 또는 비밀번호가 잘못되었습니다.');
+        console.log(storedUserInfo.password);
+        console.log(pw);
         }
     };
 
@@ -37,15 +42,13 @@ const Login = () => {
                     type="text" 
                     className = "login_input"
                     placeholder="ID"
-                    onChange={handleId} 
-                    value={id} />
+                    onChange={handleId}  />
 
                     <input 
                     type="password" 
                     className = "login_input"
                     placeholder="Password"
-                    onChange={handlePw} 
-                    value={pw} />
+                    onChange={handlePw}  />
 
                     <button onClick={handleLogin} type="button" className="login_btn">
                         Login
