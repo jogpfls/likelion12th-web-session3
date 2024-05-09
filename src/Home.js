@@ -12,11 +12,9 @@ function Home() {
         
         <div className="profile-container">
             <header>self-introduction</header>
-            <br /><br />
             <img className="profile" src={Profile} alt="프로필사진" />
             <div className="btn">
                 <Link to="/page1"><button>조혜린</button></Link>
-                <br />
                 <Link to="/page2"><button>지원동기</button></Link>
             </div>
                 <button className = "Up" onClick={increase}>증가</button>

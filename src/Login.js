@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './Home.js';
 import './Login.css';
 import { UserInfo } from './UserInfo.js';
-
-localStorage.setItem('userInfo', JSON.stringify(UserInfo));
 
 const Login = () => {
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [isLogin, setIsLogin] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('userInfo', JSON.stringify(UserInfo));
+    }, []); 
 
     const handleId = (e) => {
         setId(e.target.value);
@@ -25,13 +27,13 @@ const Login = () => {
             setIsLogin(true);
         } else {
         alert('ID 또는 비밀번호가 잘못되었습니다.');
-        console.log(storedUserInfo.password);
-        console.log(pw);
+        setId('');
+        setPw('');
         }
     };
 
     return (
-        <div>
+        <>
         {isLogin ? (
             <Home />
         ) : (
@@ -50,13 +52,13 @@ const Login = () => {
                     placeholder="Password"
                     onChange={handlePw}  />
 
-                    <button onClick={handleLogin} type="button" className="login_btn">
+                    <button onClick={handleLogin} type="submit" className="login_btn">
                         Login
                     </button>
                 </form>
             </div>
             )}
-        </div>
+        </>
         );
     };
 
